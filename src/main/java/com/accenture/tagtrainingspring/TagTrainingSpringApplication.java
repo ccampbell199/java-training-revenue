@@ -18,9 +18,9 @@ public class TagTrainingSpringApplication {
 		printWelcomeMessage();
 
 		Patient patient = new Patient("Joe", 1, LocalDate.of(1994, 1, 1), Gender.MALE);
-		Screening screening = new Screening(1, patient, LocalDate.of(2020, 4, 1), false);
+		Screening screening = new Screening(1, 1, LocalDate.of(2020, 4, 1), false);
 
-		System.out.println("Patient: " + screening.getPatient().getName() + " has a malignant diagnosis of " + screening.isMalignant());
+		System.out.println("Patient: " + patient.getName() + " has a malignant diagnosis of " + screening.getMalignantResult());
 	}
 
 	private static void printWelcomeMessage() {
