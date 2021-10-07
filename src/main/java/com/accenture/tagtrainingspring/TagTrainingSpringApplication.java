@@ -1,7 +1,12 @@
 package com.accenture.tagtrainingspring;
 
+import com.accenture.tagtrainingspring.patient.Gender;
+import com.accenture.tagtrainingspring.patient.Patient;
+import com.accenture.tagtrainingspring.screening.Screening;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.time.LocalDate;
+import java.time.Month;
 
 @SpringBootApplication
 public class TagTrainingSpringApplication {
@@ -21,6 +26,11 @@ public class TagTrainingSpringApplication {
 				"    |_/_/    \\_\\_____|    |_|_|  \\__,_|_|_| |_|_|_| |_|\\__, |\n" +
 				"                                                        __/ |\n" +
 				"                                                       |___/ \n");
+
+		Patient cahir = new Patient("Cahir", 1,LocalDate.of(2000, Month.JANUARY, 1), Gender.MALE);
+		Screening S1 = new Screening(01, 11, LocalDate.of(2021, Month.OCTOBER, 6), true);
+
+		System.out.println("Patient: " + cahir.getName() + " has a malignant diagnoses of " + S1.getMalignantResult());
 	}
 
 }
