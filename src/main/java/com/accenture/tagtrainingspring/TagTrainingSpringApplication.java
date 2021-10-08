@@ -1,12 +1,19 @@
 package com.accenture.tagtrainingspring;
 
+import com.accenture.tagtrainingspring.screening.ScreeningDatabase;
+import com.accenture.tagtrainingspring.service.ScreeningService;
 import com.accenture.tagtrainingspring.patient.Gender;
 import com.accenture.tagtrainingspring.patient.Patient;
 import com.accenture.tagtrainingspring.screening.Screening;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 @SpringBootApplication
 public class TagTrainingSpringApplication {
@@ -27,10 +34,25 @@ public class TagTrainingSpringApplication {
 				"                                                        __/ |\n" +
 				"                                                       |___/ \n");
 
-		Patient cahir = new Patient("Cahir", 1,LocalDate.of(2000, Month.JANUARY, 1), Gender.MALE);
-		Screening S1 = new Screening(01, 11, LocalDate.of(2021, Month.OCTOBER, 6), true);
+		ScreeningDatabase s1 = new ScreeningDatabase();
+		List<Screening> screeningList = s1.screenings();
 
-		System.out.println("Patient: " + cahir.getName() + " has a malignant diagnoses of " + S1.getMalignantResult());
+		//ScreeningService service = new ScreeningService(s1);
+		//System.out.println(service.checkScreeningName("Cahir"));
+
+
+
+
+
+		for (int i = 0; i < screeningList.size(); i++){
+			System.out.println("Screening for patient " +  screeningList.get(i).getPatient().getName() + ", returned a malignant result of " + screeningList.get(i).getMalignantResult());
+		}
+
+
+
+
 	}
+
+
 
 }
